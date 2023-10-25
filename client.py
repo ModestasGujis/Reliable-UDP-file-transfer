@@ -248,6 +248,9 @@ def run_queuing_cycle(init_time,queuing_delay,client_buffer,server_buffer):
   except socket.timeout:
     pass
 
+start_time = None
+finish_time = None
+
 def output_stats():
   print("\nStats for file transfer")
   diffcmd = subprocess.Popen(["diff","-y","--suppress-common-lines",outfilename,"server_file.txt"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -267,13 +270,16 @@ def output_stats():
   print("# total server packets --> {}".format(tot_srv_packets))
   print("# RTTs to complete flow --> {}".format(total_rounds))
   print("# server packets after the file transfer completed --> {}".format(additional_srv_packets))
+  print("# Total time to complete transfer --> {} seconds".format(finish_time - start_time))
   sys.stdout.flush()
 
 ########
 # Main #
 ########
 
+
 if __name__ == "__main__":
+  start_time = time.time()
   # parse CLI arguments
   parser = setup_option_parser()
   (options, args) = parser.parse_args()
@@ -384,6 +390,7 @@ if __name__ == "__main__":
       break
 
   # checking if the server sends us additional (useless) packets
+  finish_time = time.time()
   print("\nWaiting to fully close the connection...")
   additional_srv_packets = 0
   waiting_timeout = 2

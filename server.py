@@ -1,12 +1,13 @@
 #! /usr/bin/python3
 
-import sys, socket, hashlib, threading
+import sys, socket, hashlib, threading, time
 from optparse import OptionParser, OptionValueError
 
 # default parameters
 default_ip = '127.0.0.1'
 default_port = 50023
-
+INITIAL_SSTHRESH = 6
+INITIAL_CWND = 1
 
 ####################
 # Helper functions #
@@ -54,38 +55,116 @@ class Server:
 		self.content = []
 		self.client_address = None
 		self.sender_address = None
+
 		self.last_ack = -1
+		self.duplicated_acks = 0
 		self.timers = {}
 
+		# RTT and deviation
+		self.time_sent = {}
+		self.rtt_new_w = 0.1
+		self.rtt = None
+		self.deviation_new_w = 0.125
+		self.deviation = None
 		self.timeout_s = 1
+
+		self.ssthresh = INITIAL_SSTHRESH
+		self.cwnd = INITIAL_CWND
+		self.last_sent = -1
+
 
 	def read_content(self, filename):
 		with open(filename) as f:
 			self.content = f.readlines()
 
-	def process_ack(self, new_ack):
+	def remove_timers(self, new_ack):
 		for i in range(self.last_ack + 1, new_ack + 1):
 			self.timers[i].cancel()
 			del self.timers[i]
 
+	def update_timeout(self, new_ack):
+		rtt_sample = time.time() - self.time_sent[new_ack]
+		self.rtt = self.rtt_new_w * rtt_sample + (1 - self.rtt_new_w) * self.rtt if self.rtt else rtt_sample
+
+		deviation_sample = abs(rtt_sample - self.rtt)
+		self.deviation = self.deviation_new_w * deviation_sample + (1 - self.deviation_new_w) * self.deviation if self.deviation else deviation_sample
+
+		self.timeout_s = self.rtt + 4 * self.deviation
+
+	def process_ack(self, new_ack):
+		if new_ack < self.last_ack:
+			return
+
+		if new_ack == self.last_ack:
+			self.duplicated_acks += 1
+			if self.duplicated_acks == 3:
+				# fast retransmit, no window check
+				# from csw, doesn't imply congestion
+				self.last_sent = new_ack
+				self.send_line(new_ack + 1)
+				self.cwnd //= 2
+			return
+
+		self.update_timeout(new_ack)
+
+		self.duplicated_acks = 1
+
+		self.remove_timers(new_ack)
+
 		self.last_ack = max(new_ack, self.last_ack)
 
-	def send_line(self, index):
+		if self.cwnd < self.ssthresh:
+			self.cwnd += 1
+
+		if new_ack == len(self.content) - 1:
+			# all lines received
+			self.send_fin()
+		else:
+			while self.last_sent + 1 < len(self.content) and new_ack + self.cwnd > self.last_sent:
+				self.send_line(self.last_sent + 1)
+
+	def send_line(self, index, timer_triggered=False):
+		print("Sending line %s, content len %s" % (index, len(self.content)))
+		if timer_triggered:
+			print("Timer triggered send_line, index = %s" % (index))
+			self.last_sent = index
+			self.ssthresh = max(self.cwnd // 2, 1)
+			self.cwnd = INITIAL_CWND
+
+		self.last_sent = max(index, self.last_sent)
+		self.time_sent[index] = time.time()
+
 		msg = ("{} {}:{}|".format(self.client_address, index, self.content[index]) + get_checksum(
 			self.content[index])).encode()
 		self.sock.sendto(msg, self.sender_address)
-		self.timers[index] = threading.Timer(self.timeout_s, self.send_line, [index])
+		self.timers[index] = threading.Timer(self.timeout_s, self.send_line, [index, True])
+
+	def start_transfer(self):
+		for i in range(self.cwnd):
+			self.send_line(i)
 
 	def send_fin(self):
 		fin_msg = "{} FIN".format(self.client_address)
 		self.sock.sendto(fin_msg.encode(), self.sender_address)
 
 	def end_transfer(self):
+		print("Ending transfer")
 		self.sock.sendto("{} ACK".format(self.client_address).encode(), self.sender_address)
 		self.last_ack = -1
+		self.duplicated_acks = 0
+		self.timeout_s = 1
+
 		for timer in self.timers:
 			timer.cancel()
 			del timer
+
+		self.time_sent = {}
+		self.rtt = None
+		self.deviation = None
+
+		self.ssthresh = INITIAL_SSTHRESH
+		self.cwnd = INITIAL_CWND
+		self.last_sent = -1
 
 
 	def run(self):
@@ -98,25 +177,17 @@ class Server:
 			(data, self.sender_address) = self.sock.recvfrom(512)
 			self.client_address = data.decode().split("]")[0] + "]"
 			req = data.decode().split("]")[1].strip()
-			print("Received {}".format(data))
+			print("Cwnd {}, ssthresh {}, Received {}".format(self.cwnd, self.ssthresh, data))
 			if req == "ACK FIN":
 				self.end_transfer()
+			elif data.decode()[:3] == "ECN":
+				self.ssthresh = max(self.cwnd // 2, 1)
+				self.cwnd = min(INITIAL_CWND, self.ssthresh)
 			elif req[:3] == "ACK":
 				ack = int(req.split(" ")[1])
-
 				self.process_ack(ack)
-
-				if ack == len(self.content) - 1:
-					# all lines received
-					self.send_fin()
-				else:
-					self.send_line(ack + 1)
-
-			# set timer
 			elif req == "GET":
-				self.send_line(0)
-
-
+				self.start_transfer()
 ########
 # Main #
 ########

@@ -1,0 +1,72 @@
+
+Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+
+Received b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
+Received b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
+Received b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
+Received b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
+Received b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
+Received b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
+Received b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
+Received b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
+Received b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
+Received b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
+Received b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
+Received b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
+Received b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
+Received b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
+Received b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
+Received b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
+Received b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
+Received b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
+Received b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
+Received b'[127.0.0.1:40023] FIN'
+
+Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+
+Received b'[127.0.0.1:40023] ACK'
+
+** Stats for test W0 **
+# different lines in client file --> 17
+diff between client (left) and server (right) files:
+							      >	line4
+							      >	line5
+							      >	line6
+							      >	line7
+							      >	line8
+							      >	line9
+							      >	line10
+							      >	line11
+							      >	line12
+							      >	line13
+							      >	line14
+							      >	line15
+							      >	line16
+							      >	line17
+							      >	line18
+							      >	line19
+							      >	line20
+
+
+
+test W0: FAIL
+

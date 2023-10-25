@@ -1,0 +1,4 @@
+The channel used is unreliable (packets can be lost or arrive out of order). Server has no mechanism to detect this as it just sends the packets
+and does not wait for any response. Meaning, that if a packet is lost, server doesn't know about it and doesn't resend it. That's what happened here.
+Packet 3 was lost, client drops subsequent packets and just keeps sending ACK 2 and server ignores these ACKs.
+That's why client doesn't have any lines above and equal 4. (line4 is packet 3)

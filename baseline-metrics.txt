@@ -1,0 +1,81 @@
+
+** Stats for test A1 **
+[Command: python3 client.py --set-queue-delay=0.1 --drop-server-packets=4]
+# different lines in client file --> 0
+
+** Stats for test A2 **
+[Command: python3 client.py --set-queue-delay=0.1 --drop-client-packets=6]
+# different lines in client file --> 0
+
+** Stats for test A3 **
+[Command: python3 client.py --set-queue-delay=0.1 --drop-server-packets=1,17]
+# different lines in client file --> 0
+
+** Stats for test B1 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=10 --generate-three-dup-acks=9]
+# different lines in client file --> 0
+# total server packets --> 26
+# RTTs to complete flow --> 15
+# server packets after the file transfer completed --> 0
+
+** Stats for test B2 **
+[Command: python3 client.py --set-queue-delay=1 --set-server-buffer-size=10]
+# different lines in client file --> 0
+# total server packets --> 22
+# RTTs to complete flow --> 13
+# server packets after the file transfer completed --> 0
+
+** Stats for test B3 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=1 --generate-three-dup-acks=4]
+# different lines in client file --> 0
+# total server packets --> 32
+# RTTs to complete flow --> 58
+# server packets after the file transfer completed --> 0
+
+** Stats for test C1 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 1
+# total server packets --> 23
+# RTTs to complete flow --> 17
+# server packets after the file transfer completed --> 0
+
+** Stats for test C2 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --drop-server-packets=5]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 1
+# total server packets --> 25
+# RTTs to complete flow --> 29
+# server packets after the file transfer completed --> 0
+
+** Stats for test C3 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=2 --generate-three-dup-acks=3]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 3
+# total server packets --> 30
+# RTTs to complete flow --> 34
+# server packets after the file transfer completed --> 0
+
+** Stats for test D1 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=1 --set-server-buffer-size-changes=2@5]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 3
+# total server packets --> 25
+# RTTs to complete flow --> 23
+# server packets after the file transfer completed --> 0
+
+** Stats for test D2 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --set-server-buffer-size-changes=-2@8]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 6
+# total server packets --> 29
+# RTTs to complete flow --> 41
+# server packets after the file transfer completed --> 0
+
+** Stats for test D3 **
+[Command: python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --drop-server-packets=3 --set-server-buffer-size-changes=5@6]
+# different lines in client file --> 0
+# server-triggered ECN packets --> 1
+# total server packets --> 24
+# RTTs to complete flow --> 29
+# server packets after the file transfer completed --> 0

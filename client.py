@@ -74,6 +74,9 @@ class PacketBuffer:
   def enqueue(self, data, sender_address):
     textdata = data.decode().strip()
     send_back = False
+    # if sender_address == server_address:
+      # print(f"trying to enqueue data {data}, available space {self.available_space}\n")
+
     if self.available_space <= 0:
       textdata = "{} {}".format(ECN_preamble,textdata)
       send_back = True
@@ -321,7 +324,9 @@ if __name__ == "__main__":
   curr_rtx = 0
   last_transmitted = client.start_transfer(client_buffer)
   while True:
+    # print(f"Buffers before queueing client buffer: {client_buffer} server: {server_buffer}\n")
     simulate_network_queuing(queuing_delay,client_buffer,server_buffer)
+    # print(f"STARTING TRANSMISSION   client buffer: {client_buffer} server: {server_buffer}\n")
     if transmission_started:
       total_rounds += 1
     # deal with cases where there is no packet to send or receive, checking if the clients want to retransmit or to give up
@@ -358,6 +363,9 @@ if __name__ == "__main__":
           print("Forwarding {} from {} to {}".format(fwd_data,sender_address,destination))
           sock.sendto(fwd_data,destination)
           client_packet_no += 1
+      else:
+        print("Dropped client packet {}".format(data))
+
     # process data from server
     iteration_with_srv_packets = False
     curr_forwarded = 0
@@ -365,6 +373,7 @@ if __name__ == "__main__":
       client_in_curr_round = True
       (_,data) = network_processing.process_server_packet(origin_data)
       if not data:
+        print("Dropped server packet {}".format(origin_data))
         continue
       if send_back:
         print("Forwarding back ECN packet {}".format(origin_data))

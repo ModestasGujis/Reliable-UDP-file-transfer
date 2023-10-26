@@ -6,7 +6,7 @@ from optparse import OptionParser, OptionValueError
 # default parameters
 default_ip = '127.0.0.1'
 default_port = 50023
-INITIAL_SSTHRESH = 7
+INITIAL_SSTHRESH = 8
 INITIAL_CWND = 1
 
 ####################
@@ -24,6 +24,7 @@ class ConcurrentSocket:
 			return self.sock.recvfrom(size)
 
 	def sendto(self, msg, address):
+		print(f"Server sending {msg} to {address}")
 		with self.lock:
 			return self.sock.sendto(msg, address)
 
@@ -49,6 +50,14 @@ def check_address(option, opt_str, value, parser):
 	parser.values.ip = value
 
 
+def get_client_address(data):
+	decoded = data.decode()
+	if decoded[:3] == "ECN":
+		return "[" + decoded.split("]")[0].split("[")[1] + "]"
+	else:
+		return decoded.split("]")[0] + "]"
+
+
 class Server:
 	def __init__(self, own_address):
 		self.sock = ConcurrentSocket(own_address, threading.Lock())
@@ -72,6 +81,8 @@ class Server:
 		self.cwnd = INITIAL_CWND
 		self.last_sent = -1
 		self.acks_received = 0
+		self.acks_on_max_window = 0
+		self.acks_on_max_window_threshold = 3
 
 	def read_content(self, filename):
 		with open(filename) as f:
@@ -79,8 +90,9 @@ class Server:
 
 	# def remove_timers(self, new_ack):
 	# 	for i in range(self.last_ack + 1, new_ack + 1):
-	# 		self.timers[i].cancel()
-	# 		del self.timers[i]
+	# 		if i in self.timers:
+	# 			self.timers[i].cancel()
+	# 			del self.timers[i]
 
 	def update_timeout(self, new_ack):
 		rtt_sample = time.time() - self.time_sent[new_ack]
@@ -96,6 +108,7 @@ class Server:
 			assert False, "Received out of order ack"
 			return
 
+		self.acks_received += 1
 		if new_ack == self.last_ack:
 			self.duplicated_acks += 1
 			if self.duplicated_acks == 2:
@@ -103,10 +116,10 @@ class Server:
 				# from csw, doesn't imply congestion
 				self.last_sent = new_ack
 				self.last_ack = new_ack - 1
-				self.send_line(new_ack + 1)
-				# self.cwnd //= 2
 				self.acks_received = 0
 				self.duplicated_acks = 0
+				self.send_line(new_ack + 1)
+				# self.cwnd //= 2
 			return
 
 		# self.update_timeout(new_ack)
@@ -116,11 +129,17 @@ class Server:
 
 		self.last_ack = max(new_ack, self.last_ack)
 
-		self.acks_received += 1
-		if self.acks_received >= self.cwnd and self.cwnd < self.ssthresh:
-			self.cwnd += 1
-			self.acks_received = 0
-
+		if self.acks_received >= self.cwnd:
+			if self.cwnd < self.ssthresh:
+				self.cwnd += 1
+				self.acks_received = 0
+			else:
+				self.acks_on_max_window += 1
+				if self.acks_on_max_window >= self.acks_on_max_window_threshold:
+					self.ssthresh += 1
+					self.cwnd = self.ssthresh
+					self.acks_received = 0
+					self.acks_on_max_window = 0
 
 		while self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
 			self.send_line(self.last_sent + 1)
@@ -128,11 +147,12 @@ class Server:
 	def send_line(self, index, timer_triggered=False):
 		print("Sending line %s, content len %s" % (index, len(self.content)))
 		# if timer_triggered:
-		# 	print("Timer triggered send_line, index = %s" % (index))
+		# 	print("TIMER TRIGGERED SEND_LINE, index = %s" % (index))
 		# 	self.last_sent = index
 		# 	self.ssthresh = max(self.cwnd // 2, 1)
 		# 	self.cwnd = INITIAL_CWND
 		# 	self.acks_received = 0
+		# 	self.acks_on_max_window = 0
 
 
 		self.last_sent = max(index, self.last_sent)
@@ -162,9 +182,9 @@ class Server:
 		self.duplicated_acks = 0
 		self.timeout_s = 1
 
-		# for timer in self.timers:
-		# 	timer.cancel()
-		# 	del timer
+		# for i in self.timers:
+		# 	self.timers[i].cancel()
+		# 	del self.timers[i]
 
 		self.time_sent = {}
 		self.rtt = None
@@ -174,7 +194,7 @@ class Server:
 		self.cwnd = INITIAL_CWND
 		self.last_sent = -1
 		self.acks_received = 0
-
+		self.acks_on_max_window = 0
 
 	def run(self):
 		# print that we are ready
@@ -184,7 +204,7 @@ class Server:
 
 		while True:
 			(data, self.sender_address) = self.sock.recvfrom(512)
-			self.client_address = data.decode().split("]")[0] + "]"
+			self.client_address = get_client_address(data)
 			req = data.decode().split("]")[1].strip()
 			print("Cwnd {}, ssthresh {}, Received {}".format(self.cwnd, self.ssthresh, data))
 			if req == "ACK FIN":
@@ -192,9 +212,18 @@ class Server:
 			elif data.decode()[:3] == "ECN":
 				self.ssthresh = max(self.cwnd - 1, 1)
 				self.cwnd = min(INITIAL_CWND, self.ssthresh)
-				ack_returned = int(data.decode().split("]")[1].strip().split(":", 1)[0])
+				msg = data.decode().split("]")[1].strip()
+				if msg == "FIN":
+					ack_returned = len(self.content)
+				else:
+					ack_returned = int(msg.split(":", 1)[0])
+
 				print(f"ack returned = {ack_returned}")
 				self.last_sent = ack_returned - 1
+				self.acks_on_max_window = 0
+				# for i in range(min(self.cwnd, 2)):
+				# 	self.send_line(ack_returned + i)
+				self.send_line(ack_returned)
 			elif req[:3] == "ACK":
 				ack = int(req.split(" ")[1])
 				self.process_ack(ack)

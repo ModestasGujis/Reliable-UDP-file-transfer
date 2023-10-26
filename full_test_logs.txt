@@ -1,232 +1,3 @@
-======================================Running test A1======================================
-client.py: listening on IP 127.0.0.1 and port 40023
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
-
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 0
-# total server packets --> 24
-# RTTs to complete flow --> 17
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.8293471336364746 seconds
-======================================Ending test A1======================================
-======================================Running test A2======================================
-client.py: listening on IP 127.0.0.1 and port 40023
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
-
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 0
-# total server packets --> 22
-# RTTs to complete flow --> 15
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.6236250400543213 seconds
-======================================Ending test A2======================================
-======================================Running test A3======================================
-client.py: listening on IP 127.0.0.1 and port 40023
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
-
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 0
-# total server packets --> 27
-# RTTs to complete flow --> 33
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 3.443582057952881 seconds
-======================================Ending test A3======================================
 ======================================Running test B1======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -306,8 +77,11 @@ Stats for file transfer
 # total server packets --> 26
 # RTTs to complete flow --> 15
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.6266450881958008 seconds
+# Total time to complete transfer --> 1.6250169277191162 seconds
 ======================================Ending test B1======================================
+
+
+
 ======================================Running test B2======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -377,8 +151,11 @@ Stats for file transfer
 # total server packets --> 22
 # RTTs to complete flow --> 13
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 14.021766185760498 seconds
+# Total time to complete transfer --> 14.023690938949585 seconds
 ======================================Ending test B2======================================
+
+
+
 ======================================Running test B3======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -392,7 +169,6 @@ Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff5266
 Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
 
 Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Dropped server packet b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
 
 Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -404,9 +180,9 @@ Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28
 Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
 
 Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
 
 Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -416,9 +192,9 @@ Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03
 Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
 
 Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
 
 Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -428,9 +204,9 @@ Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27
 Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
 
 Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
 
 Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -440,9 +216,9 @@ Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f
 Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
 
 Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
 
 Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -452,9 +228,9 @@ Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251
 Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
 
 Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
 
 Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -464,9 +240,9 @@ Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4
 Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
 
 Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
 
 Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -481,12 +257,15 @@ Waiting to fully close the connection...
 
 Stats for file transfer
 # different lines in client file --> 0
-# server-triggered ECN packets --> 1
-# total server packets --> 24
-# RTTs to complete flow --> 63
+# server-triggered ECN packets --> 7
+# total server packets --> 30
+# RTTs to complete flow --> 57
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 6.485323190689087 seconds
+# Total time to complete transfer --> 5.877646207809448 seconds
 ======================================Ending test B3======================================
+
+
+
 ======================================Running test C1======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -518,37 +297,37 @@ Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 9:line10\n|b369f5311b
 Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
+
+Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
 Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
 
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
+
+Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
 Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
 
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
 
 Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
+Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
+Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
+
 Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
+Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
+
+Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] FIN'
 
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] ACK'
@@ -561,8 +340,11 @@ Stats for file transfer
 # total server packets --> 23
 # RTTs to complete flow --> 17
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.8264539241790771 seconds
+# Total time to complete transfer --> 1.827690839767456 seconds
 ======================================Ending test C1======================================
+
+
+
 ======================================Running test C2======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -579,6 +361,7 @@ Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1',
 Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
+Dropped server packet b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
 Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
 
 Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
@@ -608,33 +391,31 @@ Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 11:line12\n|3d473d06b
 Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
+
+Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
 Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
 
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
+
+Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
 Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
 
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
 
 Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
+Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
+Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
 Received (in client) b'[127.0.0.1:40023] FIN'
 
+Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] ACK'
@@ -645,10 +426,13 @@ Stats for file transfer
 # different lines in client file --> 0
 # server-triggered ECN packets --> 1
 # total server packets --> 25
-# RTTs to complete flow --> 23
+# RTTs to complete flow --> 21
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.437701940536499 seconds
+# Total time to complete transfer --> 2.234416961669922 seconds
 ======================================Ending test C2======================================
+
+
+
 ======================================Running test C3======================================
 client.py: listening on IP 127.0.0.1 and port 40023
 
@@ -677,49 +461,48 @@ Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 5:line6\n|f1a6b665edc
 
 Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
 
 Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
 
+Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
 
 Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
 
+Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
 Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
 
 Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
 
 Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
+Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
 Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
+
+Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
 
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
 Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
 
 Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
+Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
 Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
+
+Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
 
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
 Received (in client) b'[127.0.0.1:40023] FIN'
 
@@ -732,268 +515,12 @@ Waiting to fully close the connection...
 
 Stats for file transfer
 # different lines in client file --> 0
-# server-triggered ECN packets --> 1
-# total server packets --> 25
-# RTTs to complete flow --> 25
+# server-triggered ECN packets --> 2
+# total server packets --> 27
+# RTTs to complete flow --> 21
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.6426427364349365 seconds
+# Total time to complete transfer --> 2.233880043029785 seconds
 ======================================Ending test C3======================================
-======================================Running test D1======================================
-client.py: listening on IP 127.0.0.1 and port 40023
 
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
 
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 1
-# total server packets --> 23
-# RTTs to complete flow --> 43
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 4.463590860366821 seconds
-======================================Ending test D1======================================
-======================================Running test D2======================================
-client.py: listening on IP 127.0.0.1 and port 40023
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
-
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 1
-# total server packets --> 23
-# RTTs to complete flow --> 17
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.8297109603881836 seconds
-======================================Ending test D2======================================
-======================================Running test D3======================================
-client.py: listening on IP 127.0.0.1 and port 40023
-
-Forwarding b'[127.0.0.1:40023] GET' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 0:line1\n|1ddab9058a07abc0db2605ab02a61a00'
-
-Forwarding b'[127.0.0.1:40023] ACK 0' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 1:line2\n|8475275e7210a7821f93475ff52669d3'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
-
-Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-
-Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
-Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
-
-Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
-Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
-Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
-Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
-
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
-
-Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
-Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
-
-Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] ACK'
-
-Waiting to fully close the connection...
-
-Stats for file transfer
-# different lines in client file --> 0
-# server-triggered ECN packets --> 0
-# total server packets --> 23
-# RTTs to complete flow --> 39
-# server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 4.048354148864746 seconds
-======================================Ending test D3======================================

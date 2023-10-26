@@ -6,7 +6,7 @@ from optparse import OptionParser, OptionValueError
 # default parameters
 default_ip = '127.0.0.1'
 default_port = 50023
-INITIAL_SSTHRESH = 6
+INITIAL_SSTHRESH = 7
 INITIAL_CWND = 1
 
 ####################
@@ -58,7 +58,7 @@ class Server:
 
 		self.last_ack = -1
 		self.duplicated_acks = 0
-		self.timers = {}
+		# self.timers = {}
 
 		# RTT and deviation
 		self.time_sent = {}
@@ -71,16 +71,16 @@ class Server:
 		self.ssthresh = INITIAL_SSTHRESH
 		self.cwnd = INITIAL_CWND
 		self.last_sent = -1
-
+		self.acks_received = 0
 
 	def read_content(self, filename):
 		with open(filename) as f:
 			self.content = f.readlines()
 
-	def remove_timers(self, new_ack):
-		for i in range(self.last_ack + 1, new_ack + 1):
-			self.timers[i].cancel()
-			del self.timers[i]
+	# def remove_timers(self, new_ack):
+	# 	for i in range(self.last_ack + 1, new_ack + 1):
+	# 		self.timers[i].cancel()
+	# 		del self.timers[i]
 
 	def update_timeout(self, new_ack):
 		rtt_sample = time.time() - self.time_sent[new_ack]
@@ -93,51 +93,59 @@ class Server:
 
 	def process_ack(self, new_ack):
 		if new_ack < self.last_ack:
+			assert False, "Received out of order ack"
 			return
 
 		if new_ack == self.last_ack:
 			self.duplicated_acks += 1
-			if self.duplicated_acks == 3:
+			if self.duplicated_acks == 2:
 				# fast retransmit, no window check
 				# from csw, doesn't imply congestion
 				self.last_sent = new_ack
+				self.last_ack = new_ack - 1
 				self.send_line(new_ack + 1)
-				self.cwnd //= 2
+				# self.cwnd //= 2
+				self.acks_received = 0
+				self.duplicated_acks = 0
 			return
 
-		self.update_timeout(new_ack)
+		# self.update_timeout(new_ack)
 
-		self.duplicated_acks = 1
 
-		self.remove_timers(new_ack)
+		# self.remove_timers(new_ack)
 
 		self.last_ack = max(new_ack, self.last_ack)
 
-		if self.cwnd < self.ssthresh:
+		self.acks_received += 1
+		if self.acks_received >= self.cwnd and self.cwnd < self.ssthresh:
 			self.cwnd += 1
+			self.acks_received = 0
 
-		if new_ack == len(self.content) - 1:
-			# all lines received
-			self.send_fin()
-		else:
-			while self.last_sent + 1 < len(self.content) and new_ack + self.cwnd > self.last_sent:
-				self.send_line(self.last_sent + 1)
+
+		while self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
+			self.send_line(self.last_sent + 1)
 
 	def send_line(self, index, timer_triggered=False):
 		print("Sending line %s, content len %s" % (index, len(self.content)))
-		if timer_triggered:
-			print("Timer triggered send_line, index = %s" % (index))
-			self.last_sent = index
-			self.ssthresh = max(self.cwnd // 2, 1)
-			self.cwnd = INITIAL_CWND
+		# if timer_triggered:
+		# 	print("Timer triggered send_line, index = %s" % (index))
+		# 	self.last_sent = index
+		# 	self.ssthresh = max(self.cwnd // 2, 1)
+		# 	self.cwnd = INITIAL_CWND
+		# 	self.acks_received = 0
+
 
 		self.last_sent = max(index, self.last_sent)
 		self.time_sent[index] = time.time()
 
+		if index == len(self.content):
+			self.send_fin()
+			return
+
 		msg = ("{} {}:{}|".format(self.client_address, index, self.content[index]) + get_checksum(
 			self.content[index])).encode()
 		self.sock.sendto(msg, self.sender_address)
-		self.timers[index] = threading.Timer(self.timeout_s, self.send_line, [index, True])
+		# self.timers[index] = threading.Timer(self.timeout_s, self.send_line, [index, True])
 
 	def start_transfer(self):
 		for i in range(self.cwnd):
@@ -154,9 +162,9 @@ class Server:
 		self.duplicated_acks = 0
 		self.timeout_s = 1
 
-		for timer in self.timers:
-			timer.cancel()
-			del timer
+		# for timer in self.timers:
+		# 	timer.cancel()
+		# 	del timer
 
 		self.time_sent = {}
 		self.rtt = None
@@ -165,6 +173,7 @@ class Server:
 		self.ssthresh = INITIAL_SSTHRESH
 		self.cwnd = INITIAL_CWND
 		self.last_sent = -1
+		self.acks_received = 0
 
 
 	def run(self):
@@ -181,8 +190,11 @@ class Server:
 			if req == "ACK FIN":
 				self.end_transfer()
 			elif data.decode()[:3] == "ECN":
-				self.ssthresh = max(self.cwnd // 2, 1)
+				self.ssthresh = max(self.cwnd - 1, 1)
 				self.cwnd = min(INITIAL_CWND, self.ssthresh)
+				ack_returned = int(data.decode().split("]")[1].strip().split(":", 1)[0])
+				print(f"ack returned = {ack_returned}")
+				self.last_sent = ack_returned - 1
 			elif req[:3] == "ACK":
 				ack = int(req.split(" ")[1])
 				self.process_ack(ack)

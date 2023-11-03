@@ -1,10 +1,10 @@
 import subprocess
 
 tests = [
-	# ['A1', 'python3 client.py --set-queue-delay=0.1 --drop-server-packets=4', 0, 0, 1000, 1000, 0],
-	# ['A2', 'python3 client.py --set-queue-delay=0.1 --drop-client-packets=6', 0, 0, 1000, 1000, 0],
-	# ['A3', 'python3 client.py --set-queue-delay=0.1 --drop-server-packets=1,17', 0, 0, 1000, 1000, 0],
-	#
+	['A1', 'python3 client.py --set-queue-delay=0.1 --drop-server-packets=4', 0, 0, 1000, 1000, 0],
+	['A2', 'python3 client.py --set-queue-delay=0.1 --drop-client-packets=6', 0, 0, 1000, 1000, 0],
+	['A3', 'python3 client.py --set-queue-delay=0.1 --drop-server-packets=1,17', 0, 0, 1000, 1000, 0],
+
 	['B1', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=10 --generate-three-dup-acks=9', 0, 0, 26, 15, 0],
 	['B2', 'python3 client.py --set-queue-delay=1 --set-server-buffer-size=10', 0, 0, 22, 13, 0],
 	['B3', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=1 --generate-three-dup-acks=4', 0, 7, 32, 58, 0],
@@ -13,9 +13,9 @@ tests = [
 	['C2', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --drop-server-packets=5', 0, 1, 25, 29, 0],
 	['C3', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=2 --generate-three-dup-acks=3', 0, 3, 30, 34, 0],
 
-	# ['D1', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=1 --set-server-buffer-size-changes=2@5', 0, 3, 25, 23, 0],
-	# ['D2', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --set-server-buffer-size-changes=-2@8', 0, 6, 29, 41, 0],
-	# ['D3', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --drop-server-packets=3 --set-server-buffer-size-changes=5@6', 0, 1, 24, 29, 0],
+	['D1', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=1 --set-server-buffer-size-changes=2@5', 0, 3, 25, 23, 0],
+	['D2', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --set-server-buffer-size-changes=-2@8', 0, 6, 29, 41, 0],
+	['D3', 'python3 client.py --set-queue-delay=0.1 --set-server-buffer-size=3 --drop-server-packets=3 --set-server-buffer-size-changes=5@6', 0, 1, 24, 29, 0],
 ]
 
 HEADER = '\033[95m'

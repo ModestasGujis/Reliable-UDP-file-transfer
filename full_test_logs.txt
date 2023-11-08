@@ -74,7 +74,7 @@ Stats for file transfer
 # total server packets --> 24
 # RTTs to complete flow --> 15
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.625709056854248 seconds
+# Total time to complete transfer --> 1.6243178844451904 seconds
 ======================================Ending test A1======================================
 
 
@@ -150,7 +150,7 @@ Stats for file transfer
 # total server packets --> 22
 # RTTs to complete flow --> 15
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.6245739459991455 seconds
+# Total time to complete transfer --> 1.6202189922332764 seconds
 ======================================Ending test A2======================================
 
 
@@ -233,7 +233,7 @@ Stats for file transfer
 # total server packets --> 27
 # RTTs to complete flow --> 33
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 3.44224214553833 seconds
+# Total time to complete transfer --> 3.4425039291381836 seconds
 ======================================Ending test A3======================================
 
 
@@ -317,7 +317,7 @@ Stats for file transfer
 # total server packets --> 26
 # RTTs to complete flow --> 15
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.6235451698303223 seconds
+# Total time to complete transfer --> 1.6225416660308838 seconds
 ======================================Ending test B1======================================
 
 
@@ -391,7 +391,7 @@ Stats for file transfer
 # total server packets --> 22
 # RTTs to complete flow --> 13
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 14.010159730911255 seconds
+# Total time to complete transfer --> 14.018683910369873 seconds
 ======================================Ending test B2======================================
 
 
@@ -504,7 +504,7 @@ Stats for file transfer
 # total server packets --> 31
 # RTTs to complete flow --> 58
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 5.977737903594971 seconds
+# Total time to complete transfer --> 5.965831756591797 seconds
 ======================================Ending test B3======================================
 
 
@@ -582,7 +582,7 @@ Stats for file transfer
 # total server packets --> 23
 # RTTs to complete flow --> 16
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 1.7250549793243408 seconds
+# Total time to complete transfer --> 1.7235691547393799 seconds
 ======================================Ending test C1======================================
 
 
@@ -669,7 +669,7 @@ Stats for file transfer
 # total server packets --> 25
 # RTTs to complete flow --> 20
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.129460096359253 seconds
+# Total time to complete transfer --> 2.127545118331909 seconds
 ======================================Ending test C2======================================
 
 
@@ -764,7 +764,7 @@ Stats for file transfer
 # total server packets --> 29
 # RTTs to complete flow --> 22
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.3373191356658936 seconds
+# Total time to complete transfer --> 2.336822986602783 seconds
 ======================================Ending test C3======================================
 
 
@@ -849,7 +849,7 @@ Stats for file transfer
 # total server packets --> 25
 # RTTs to complete flow --> 22
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.3412468433380127 seconds
+# Total time to complete transfer --> 2.3373630046844482 seconds
 ======================================Ending test D1======================================
 
 
@@ -942,7 +942,7 @@ Stats for file transfer
 # total server packets --> 29
 # RTTs to complete flow --> 24
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.538351058959961 seconds
+# Total time to complete transfer --> 2.5365049839019775 seconds
 ======================================Ending test D2======================================
 
 
@@ -966,53 +966,55 @@ Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca96
 Forwarding b'[127.0.0.1:40023] ACK 1' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] 2:line3\n|e548809a0abac953cb96330ac4e28a55'
+Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
 
 Forwarding b'[127.0.0.1:40023] ACK 2' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
-Received (in client) b'[127.0.0.1:40023] 3:line4\n|6c28abc9fadebce4133e90193ca967d2'
-Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
-
 Forwarding b'[127.0.0.1:40023] ACK 3' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
+Received (in client) b'[127.0.0.1:40023] 4:line5\n|e135e514d968fbb23416f19e0b820c39'
 Received (in client) b'[127.0.0.1:40023] 5:line6\n|f1a6b665edc649efa47937061ce03414'
 Received (in client) b'[127.0.0.1:40023] 6:line7\n|67439b1c9862b3beb4e1cdf029f3e903'
-Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
 
+Forwarding b'[127.0.0.1:40023] ACK 4' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 5' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 6' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
+Received (in client) b'[127.0.0.1:40023] 7:line8\n|8293dee33f7bb624fe6b05876c78d9c6'
 Received (in client) b'[127.0.0.1:40023] 8:line9\n|a046321c783657b915ef2e930af27c13'
 Received (in client) b'[127.0.0.1:40023] 9:line10\n|b369f5311b190a99fb9f01722770af39'
+Forwarding back ECN packet b'ECN dropped [127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
+
+Forwarding b'[127.0.0.1:40023] ACK 7' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Received (in client) b'[127.0.0.1:40023] 10:line11\n|c8ad2b957f1bb5156275469a2ce51ebd'
 Received (in client) b'[127.0.0.1:40023] 11:line12\n|3d473d06b0c7c635f62aeb6987f483b1'
 
-Forwarding b'[127.0.0.1:40023] ACK 8' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 9' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 10' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 11' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-
 Received (in client) b'[127.0.0.1:40023] 12:line13\n|f05b8fb68a7cb29b697d06b29af3a49d'
-Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
-Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
-Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
-Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
 
 Forwarding b'[127.0.0.1:40023] ACK 12' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 13:line14\n|01a3622aaf0ca56e5b63c95dc3cf76a5'
+Received (in client) b'[127.0.0.1:40023] 14:line15\n|e813e2add128dac3f88da223251527a7'
+
 Forwarding b'[127.0.0.1:40023] ACK 13' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 14' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
-Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 15:line16\n|8107de44127d0df56a8e367da04e8d43'
 
+Forwarding b'[127.0.0.1:40023] ACK 15' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 16:line17\n|cf65ff56290d52cd0a39b8a195d54417'
 Received (in client) b'[127.0.0.1:40023] 17:line18\n|45e9d611d8e1058ea3cbbeec0e4ab3b7'
 Received (in client) b'[127.0.0.1:40023] 18:line19\n|6a4a3aca6f84509d6a25ce36eff5f1df'
-Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
-Received (in client) b'[127.0.0.1:40023] FIN'
 
+Forwarding b'[127.0.0.1:40023] ACK 16' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 17' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 Forwarding b'[127.0.0.1:40023] ACK 18' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] 19:line20\n|b473360c71d0d3a1b97d6eedd2f2d265'
+
 Forwarding b'[127.0.0.1:40023] ACK 19' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
+Received (in client) b'[127.0.0.1:40023] FIN'
+
 Forwarding b'[127.0.0.1:40023] ACK FIN' from ('127.0.0.1', 40023) to ('127.0.0.1', 50023)
 
 Received (in client) b'[127.0.0.1:40023] ACK'
@@ -1021,11 +1023,11 @@ Waiting to fully close the connection...
 
 Stats for file transfer
 # different lines in client file --> 0
-# server-triggered ECN packets --> 0
-# total server packets --> 23
-# RTTs to complete flow --> 19
+# server-triggered ECN packets --> 1
+# total server packets --> 24
+# RTTs to complete flow --> 20
 # server packets after the file transfer completed --> 0
-# Total time to complete transfer --> 2.0294461250305176 seconds
+# Total time to complete transfer --> 2.1296138763427734 seconds
 ======================================Ending test D3======================================
 
 

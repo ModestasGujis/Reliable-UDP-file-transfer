@@ -9,27 +9,21 @@ default_port = 50023
 INITIAL_SSTHRESH = 8
 INITIAL_CWND = 1
 INITIAL_TIMEOUT = 5
+
+NEW_RTT_WEIGHT = 0.1
+NEW_DEVIATION_WEIGHT = 0.125
+DEVIATIONS_IN_TIMEOUT = 6
+
+ACKS_ON_MAX_WINDOW_THRESHOLD = 3
+
 TIMEOUT_INCREMENT = 0.0001
 MAIN_THREAD_SLEEP_TIME = 0.000001
+
 ####################
 # Helper functions #
 ####################
 
 global_lock = threading.RLock()
-
-class ConcurrentSocket:
-	def __init__(self, own_address, lock):
-		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-		self.sock.bind(own_address)
-		self.lock = lock
-
-	def recvfrom(self, size):
-		with self.lock:
-			return self.sock.recvfrom(size)
-
-	def sendto(self, msg, address):
-		with self.lock:
-			return self.sock.sendto(msg, address)
 
 
 def get_checksum(msg):
@@ -45,10 +39,10 @@ def check_port(option, opt_str, value, parser):
 def check_address(option, opt_str, value, parser):
 	value_array = value.split(".")
 	if len(value_array) < 4 or \
-			int(value_array[0]) < 0 or int(value_array[0]) > 255 or \
-			int(value_array[1]) < 0 or int(value_array[1]) > 255 or \
-			int(value_array[2]) < 0 or int(value_array[2]) > 255 or \
-			int(value_array[3]) < 0 or int(value_array[3]) > 255:
+		int(value_array[0]) < 0 or int(value_array[0]) > 255 or \
+		int(value_array[1]) < 0 or int(value_array[1]) > 255 or \
+		int(value_array[2]) < 0 or int(value_array[2]) > 255 or \
+		int(value_array[3]) < 0 or int(value_array[3]) > 255:
 		raise OptionValueError("IP address must be specified as [0-255].[0-255].[0-255].[0-255]")
 	parser.values.ip = value
 
@@ -63,8 +57,27 @@ def get_client_address(data):
 
 class Server:
 	def __init__(self, own_address):
-		self.sock = ConcurrentSocket(own_address, threading.Lock())
+		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+		self.sock.bind(own_address)
 		self.content = []
+		self.client_address = None
+		self.sender_address = None
+		self.transfer_in_progress = None
+		self.last_ack = None
+		self.duplicated_acks = None
+		self.timers = None
+		self.timer_updated = None
+		self.timer_in_flight = None
+		self.time_sent = None
+		self.rtt = None
+		self.deviation = None
+		self.timeout_s = None
+		self.ssthresh = None
+		self.cwnd = None
+		self.last_sent = None
+		self.acks_received = None
+		self.acks_on_max_window = None
+
 		self.reset_variables()
 
 	def reset_variables(self):
@@ -76,14 +89,11 @@ class Server:
 		self.duplicated_acks = 0
 		self.timers = {}
 		self.timer_updated = {}
+		self.timer_in_flight = 0  # messages in flight triggered by timer before any ACK
 
-		self.timer_in_flight = 0
-
-		# RTT and deviation
+		# RTT, Deviation, timeout
 		self.time_sent = {}
-		self.rtt_new_w = 0.1
 		self.rtt = None
-		self.deviation_new_w = 0.125
 		self.deviation = TIMEOUT_INCREMENT
 		self.timeout_s = INITIAL_TIMEOUT
 
@@ -92,7 +102,6 @@ class Server:
 		self.last_sent = -1
 		self.acks_received = 0
 		self.acks_on_max_window = 0
-		self.acks_on_max_window_threshold = 3
 
 	def read_content(self, filename):
 		with open(filename) as f:
@@ -101,7 +110,6 @@ class Server:
 	def remove_timers(self, new_ack):
 		for i in range(0, new_ack + 1):
 			if i in self.timers:
-				print(f'removing {i} timer')
 				self.timers[i].cancel()
 				del self.timers[i]
 			if i in self.timer_updated:
@@ -109,18 +117,15 @@ class Server:
 
 	def update_timeout(self, new_ack):
 		rtt_sample = time.time() - self.time_sent[new_ack]
-		self.rtt = self.rtt_new_w * rtt_sample + (1 - self.rtt_new_w) * self.rtt if self.rtt else rtt_sample
+		self.rtt = NEW_RTT_WEIGHT * rtt_sample + (1 - NEW_RTT_WEIGHT) * self.rtt if self.rtt else rtt_sample
 
 		deviation_sample = abs(rtt_sample - self.rtt)
-		self.deviation = self.deviation_new_w * deviation_sample + (1 - self.deviation_new_w) * self.deviation if self.deviation else deviation_sample
+		self.deviation = NEW_DEVIATION_WEIGHT * deviation_sample + (1 - NEW_DEVIATION_WEIGHT) * self.deviation if self.deviation else deviation_sample
 
-		self.timeout_s = self.rtt + 6 * self.deviation
+		self.timeout_s = self.rtt + DEVIATIONS_IN_TIMEOUT * self.deviation
 
 	def process_ack(self, new_ack):
 		if not self.transfer_in_progress:
-			return
-		if new_ack < self.last_ack:
-			assert False, "Received out of order ack"
 			return
 
 		self.timer_in_flight = 0
@@ -143,7 +148,6 @@ class Server:
 
 		self.update_timeout(new_ack)
 
-
 		self.remove_timers(new_ack)
 
 		self.last_ack = max(new_ack, self.last_ack)
@@ -154,7 +158,7 @@ class Server:
 				self.acks_received = 0
 			else:
 				self.acks_on_max_window += 1
-				if self.acks_on_max_window >= self.acks_on_max_window_threshold:
+				if self.acks_on_max_window >= ACKS_ON_MAX_WINDOW_THRESHOLD:
 					self.ssthresh += 1
 					self.cwnd = self.ssthresh
 					self.acks_received = 0
@@ -164,12 +168,9 @@ class Server:
 			self.send_line(self.last_sent + 1)
 
 	def send_line(self, index, timer_triggered=False):
-		with global_lock: # to prevent concurrent send_line
-			print("Sending line %s, content len %s" % (index, len(self.content)))
+		with global_lock:  # to prevent concurrent send_line
 			if timer_triggered:
 				# assume a lost packet, no congestion
-				print("TIMER TRIGGERED SEND_LINE, index = %s, ident = %s" % (index, self.timers[index].ident))
-
 				if index <= self.last_ack:  # out of date timer, ignore
 					print("Ignoring out of date timer")
 					return
@@ -179,13 +180,10 @@ class Server:
 					return
 
 				if self.last_ack + 1 == index:
-					# self.last_ack -= 1
 					self.duplicated_acks = 0
-					# lower last ack so it doesn't trigger fast retransmit
+				# lower last ack so it doesn't trigger fast retransmit
 
 				self.last_sent = index
-				# self.ssthresh = max(self.cwnd // 2, 1)
-				# self.cwnd = INITIAL_CWND
 				self.acks_received = 0
 				self.acks_on_max_window = 0
 			# end timer triggered
@@ -205,12 +203,11 @@ class Server:
 			msg = ("{} {}:{}|".format(self.client_address, index, self.content[index]) + get_checksum(
 				self.content[index])).encode()
 			self.sock.sendto(msg, self.sender_address)
-			print(f'Adding timer {index} in {self.timeout_s} seconds')
 			if index in self.timers:
 				self.timers[index].cancel()
 			self.timers[index] = threading.Timer(self.timeout_s, self.send_line, [index, True])
-			self.timer_updated[index] = time.time()
 			self.timers[index].start()
+			self.timer_updated[index] = time.time()
 
 			# increment timout slightly so that we don't get out of order triggers
 			self.timeout_s += TIMEOUT_INCREMENT
@@ -251,13 +248,9 @@ class Server:
 		else:
 			ack_returned = int(msg.split(":", 1)[0])
 
-		print(f"ack returned = {ack_returned}")
-		print(f"last_ack: {self.last_ack}, cwnd: {self.cwnd}, last_sent: {self.last_sent}")
-
 		self.last_sent = ack_returned - 1
 		self.acks_on_max_window = 0
 		self.acks_received = 0
-
 
 		for i in range(max(0, self.cwnd - self.timer_in_flight)):
 			if not self.transfer_in_progress or ack_returned + i > len(self.content) + 1:
@@ -275,9 +268,9 @@ class Server:
 				(data, self.sender_address) = self.sock.recvfrom(512)
 				self.client_address = get_client_address(data)
 				req = data.decode().split("]")[1].strip()
-				print("Cwnd {}, ssthresh {}, Received {}".format(self.cwnd, self.ssthresh, data))
+
 				if req == "ACK FIN":
-					if self.last_ack != -1: # prevent processing ack fin twice
+					if self.last_ack != -1:  # prevent processing ack fin twice
 						self.end_transfer()
 				elif data.decode()[:3] == "ECN":
 					self.process_ecn(data)

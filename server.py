@@ -28,7 +28,6 @@ class ConcurrentSocket:
 			return self.sock.recvfrom(size)
 
 	def sendto(self, msg, address):
-		# print(f"Server sending {msg} to {address}")
 		with self.lock:
 			return self.sock.sendto(msg, address)
 
@@ -135,18 +134,9 @@ class Server:
 				self.last_ack = new_ack - 1
 				self.acks_received = 0
 				self.duplicated_acks = 0
-				# self.send_line(new_ack + 1)
 				print("3 duplicates -> Fast retransmit")
-				while self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
+				while self.transfer_in_progress and self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
 					self.send_line(self.last_sent + 1)
-				# self.cwnd //= 2
-			# elif new_ack + self.cwnd == self.last_sent:
-			# 	# fast retransmit if two acks
-			# 	self.last_sent = new_ack
-			# 	self.last_ack = new_ack - 1
-			# 	self.acks_received = 0
-			# 	self.duplicated_acks = 0
-			# 	self.send_line(new_ack + 1)
 			return
 		else:
 			self.duplicated_acks = 0
@@ -170,7 +160,7 @@ class Server:
 					self.acks_received = 0
 					self.acks_on_max_window = 0
 
-		while self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
+		while self.transfer_in_progress and self.last_sent + 1 <= len(self.content) and new_ack + self.cwnd > self.last_sent:
 			self.send_line(self.last_sent + 1)
 
 	def send_line(self, index, timer_triggered=False):
@@ -198,13 +188,16 @@ class Server:
 				# self.cwnd = INITIAL_CWND
 				self.acks_received = 0
 				self.acks_on_max_window = 0
-
+			# end timer triggered
 
 			self.last_sent = max(index, self.last_sent)
 			self.time_sent[index] = time.time()
 
 			if index == len(self.content):
 				self.send_fin()
+				return
+			elif index == len(self.content) + 1:
+				self.end_transfer()
 				return
 
 			self.timer_in_flight += int(timer_triggered)
@@ -219,7 +212,6 @@ class Server:
 			self.timer_updated[index] = time.time()
 			self.timers[index].start()
 
-			print(f"timer ident: {self.timers[index].ident}")
 			# increment timout slightly so that we don't get out of order triggers
 			self.timeout_s += TIMEOUT_INCREMENT
 
@@ -233,6 +225,8 @@ class Server:
 		self.sock.sendto(fin_msg.encode(), self.sender_address)
 
 	def end_transfer(self):
+		if not self.transfer_in_progress:
+			return
 		print("Ending transfer")
 		self.transfer_in_progress = False
 		self.sock.sendto("{} ACK".format(self.client_address).encode(), self.sender_address)
@@ -248,39 +242,30 @@ class Server:
 		if not self.transfer_in_progress:
 			return
 		self.ssthresh = max(self.cwnd - 1, 1)
-		# self.cwnd = self.ssthresh
 		self.cwnd = max(1, self.ssthresh - 1)
-		# self.cwnd = min(INITIAL_CWND, self.ssthresh)
 		msg = data.decode().split("]")[1].strip()
 		if msg == "FIN":
 			ack_returned = len(self.content)
+		elif msg == "ACK":
+			ack_returned = len(self.content) + 1
 		else:
 			ack_returned = int(msg.split(":", 1)[0])
 
 		print(f"ack returned = {ack_returned}")
 		print(f"last_ack: {self.last_ack}, cwnd: {self.cwnd}, last_sent: {self.last_sent}")
-		if self.last_ack + self.cwnd <= self.last_sent:
-			to_send = False
-		else:
-			to_send = True
 
 		self.last_sent = ack_returned - 1
 		self.acks_on_max_window = 0
 		self.acks_received = 0
 
-		# self.duplicated_acks = 0 # TODO
 
 		for i in range(max(0, self.cwnd - self.timer_in_flight)):
-			if ack_returned + i > len(self.content):
+			if not self.transfer_in_progress or ack_returned + i > len(self.content) + 1:
 				break
 			self.timer_in_flight += 1
 			self.send_line(ack_returned + i)
-		# TODO don't send if window full?
-		# if to_send:
-		# self.send_line(ack_returned)
 
 	def run(self):
-		# print that we are ready
 		# NOTE: do NOT remove the following print
 		print("%s: listening on IP %s and UDP port %d" % (sys.argv[0], own_ip, own_port))
 		sys.stdout.flush()
